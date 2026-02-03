@@ -1,19 +1,18 @@
 package application;
 
-import model.entities.Department;
+import model.Dao.DaoFactory;
+import model.Dao.SellerDao;
 import model.entities.Seller;
 
-import java.util.Date;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
 
-        Department department = new Department(1, "Books");
-        System.out.println(department);
+        SellerDao sellerDao = DaoFactory.createSellerDao();
 
-        Seller seller = new Seller(21, "Bob", "bob@gmail.com", new Date(), 3000.00, department);
+        Seller seller = sellerDao.findById(3);
         System.out.println(seller);
 
     }
